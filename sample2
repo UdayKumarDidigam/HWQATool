@@ -1,0 +1,89 @@
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Excel = Microsoft.Office.Interop.Excel;
+using ExcelAutoFormat = Microsoft.Office.Interop.Excel.XlRangeAutoFormat;
+
+namespace WebApplication1
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            ExportListUsingEPPlus();
+        }
+
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            DataTable dt = GetDataTableFromExcel(@"C:\Users\Uday\Downloads\Contact.xlsx");
+        }
+
+        public void ExportListUsingEPPlus()
+        {
+            var data = new[]{ 
+                               new{ Name="Ram", Email="ram@techbrij.com", Phone="111-222-3333" },
+                               new{ Name="Shyam", Email="shyam@techbrij.com", Phone="159-222-1596" },
+                               new{ Name="Mohan", Email="mohan@techbrij.com", Phone="456-222-4569" },
+                               new{ Name="Sohan", Email="sohan@techbrij.com", Phone="789-456-3333" },
+                               new{ Name="Karan", Email="karan@techbrij.com", Phone="111-222-1234" },
+                               new{ Name="Brij", Email="brij@techbrij.com", Phone="111-222-3333" }                       
+                      };
+
+            ExcelPackage excel = new ExcelPackage();
+            var workSheet = excel.Workbook.Worksheets.Add("Sheet1");
+            workSheet.Cells[1, 1].LoadFromCollection(data, true);
+            workSheet.Cells["C2"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            workSheet.Cells["C2"].Style.Fill.BackgroundColor.SetColor(Color.Red);
+            workSheet.Cells["C2"].AddComment("Hello", "System");
+            using (var memoryStream = new MemoryStream())
+            {
+                Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                Response.AddHeader("content-disposition", "attachment;  filename=Contact.xlsx");
+                excel.SaveAs(memoryStream);
+                memoryStream.WriteTo(Response.OutputStream);
+                Response.Flush();
+                Response.End();
+            }
+        }
+
+        private DataTable GetDataTableFromExcel(string path, bool hasHeader = true)
+        {
+            using (var pck = new OfficeOpenXml.ExcelPackage())
+            {
+                using (var stream = File.OpenRead(path))
+                {
+                    pck.Load(stream);
+                }
+                var ws = pck.Workbook.Worksheets[1];
+                DataTable tbl = new DataTable();
+                foreach (var firstRowCell in ws.Cells[1, 1, 1, ws.Dimension.End.Column])
+                {
+                    tbl.Columns.Add(hasHeader ? firstRowCell.Text : string.Format("Column {0}", firstRowCell.Start.Column));
+                }
+                var startRow = hasHeader ? 2 : 1;
+                for (int rowNum = startRow; rowNum <= ws.Dimension.End.Row; rowNum++)
+                {
+                    var wsRow = ws.Cells[rowNum, 1, rowNum, ws.Dimension.End.Column];
+                    DataRow row = tbl.Rows.Add();
+                    foreach (var cell in wsRow)
+                    {
+                        row[cell.Start.Column - 1] = cell.Text;
+                    }
+                }
+                return tbl;
+            }
+        }
+
+    }
+}
