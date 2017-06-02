@@ -1,1 +1,9 @@
+USE [MASTER]
+GO
+IF EXISTS(select * from sys.databases where name='HWQATOOL')
+BEGIN
+	DROP DATABASE [HWQATOOL]
+END
+GO
 CREATE DATABASE [HWQATOOL]
+GO
