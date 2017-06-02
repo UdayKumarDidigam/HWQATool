@@ -1,6 +1,6 @@
 USE [MASTER]
 GO
-IF EXISTS(select * from sys.databases where name='HWQATOOL')
+IF DB_ID(N'HWQATOOL') IS NOT NULL 
 BEGIN
 	DROP DATABASE [HWQATOOL]
 END
