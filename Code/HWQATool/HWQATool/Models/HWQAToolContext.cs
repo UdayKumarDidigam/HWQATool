@@ -30,6 +30,12 @@ namespace HWQATool.Models
         public System.Data.Entity.DbSet<HWQATool.Models.User> Users { get; set; }
 
         public System.Data.Entity.DbSet<HWQATool.Models.UserRole> UserRoles { get; set; }
+
+        public System.Data.Entity.DbSet<HWQATool.Models.Audit> Audits { get; set; }
+
+        public System.Data.Entity.DbSet<HWQATool.Models.Client> Clients { get; set; }
+
+        public System.Data.Entity.DbSet<HWQATool.Models.Platform> Platforms { get; set; }
     
     }
 }
