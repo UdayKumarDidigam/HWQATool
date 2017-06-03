@@ -27,8 +27,11 @@ namespace HWQATool.Models
 
         public System.Data.Entity.DbSet<HWQATool.Models.Error> Errors { get; set; }
 		public System.Data.Entity.DbSet<HWQATool.Models.SubTask> SubTasks { get; set; }
+        public System.Data.Entity.DbSet<HWQATool.Models.User> Users { get; set; }
 
+        public System.Data.Entity.DbSet<HWQATool.Models.UserRole> UserRoles { get; set; }
         public System.Data.Entity.DbSet<HWQATool.Models.ExcelRecord> ExcelRecords { get; set; }
+
     
     }
 }
