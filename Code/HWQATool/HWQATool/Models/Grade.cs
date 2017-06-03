@@ -25,6 +25,7 @@ namespace HWQATool.Models
         [Required]
         [Column("SAMPLE_PERCENTAGE")]
         [DisplayFormat(DataFormatString = "{0:P2}", ApplyFormatInEditMode = true)]
+        [DisplayName("Sample Percentage")]
         public decimal SamplePercentage { get; set; }
 
         [Required]
