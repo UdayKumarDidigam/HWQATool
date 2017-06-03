@@ -163,6 +163,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GradeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SubTaskController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Global.asax.cs">
@@ -172,6 +173,8 @@
     <Compile Include="Models\Grade.cs" />
     <Compile Include="Models\HWQAToolContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Platfrom.cs" />
+    <Compile Include="Models\SubTask.cs" />
     <Compile Include="Models\Task.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -238,6 +241,11 @@
     <Content Include="Views\Task\Details.cshtml" />
     <Content Include="Views\Task\Edit.cshtml" />
     <Content Include="Views\Task\Index.cshtml" />
+    <Content Include="Views\SubTask\Create.cshtml" />
+    <Content Include="Views\SubTask\Delete.cshtml" />
+    <Content Include="Views\SubTask\Details.cshtml" />
+    <Content Include="Views\SubTask\Edit.cshtml" />
+    <Content Include="Views\SubTask\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
