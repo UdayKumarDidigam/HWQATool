@@ -26,6 +26,8 @@ namespace HWQATool.Models
         public System.Data.Entity.DbSet<HWQATool.Models.Function> Functions { get; set; }
 
         public System.Data.Entity.DbSet<HWQATool.Models.Error> Errors { get; set; }
+
+        public System.Data.Entity.DbSet<HWQATool.Models.User> Users { get; set; }
     
     }
 }
