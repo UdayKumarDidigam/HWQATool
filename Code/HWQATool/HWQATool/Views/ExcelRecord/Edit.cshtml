@@ -1,0 +1,146 @@
+﻿@model HWQATool.Models.ExcelRecord
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>ExcelRecord</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeamId, "TeamId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TeamId", String.Empty)
+                @Html.ValidationMessageFor(model => model.TeamId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsError, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IsError)
+                @Html.ValidationMessageFor(model => model.IsError)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ErrorCode, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ErrorCode)
+                @Html.ValidationMessageFor(model => model.ErrorCode)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Client, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Client)
+                @Html.ValidationMessageFor(model => model.Client)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Task, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Task)
+                @Html.ValidationMessageFor(model => model.Task)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Platform, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Platform)
+                @Html.ValidationMessageFor(model => model.Platform)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Processor, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Processor)
+                @Html.ValidationMessageFor(model => model.Processor)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProcessDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProcessDate)
+                @Html.ValidationMessageFor(model => model.ProcessDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ServiceRequestNo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ServiceRequestNo)
+                @Html.ValidationMessageFor(model => model.ServiceRequestNo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AuditNo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AuditNo)
+                @Html.ValidationMessageFor(model => model.AuditNo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BatchNo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BatchNo)
+                @Html.ValidationMessageFor(model => model.BatchNo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FileNo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FileNo)
+                @Html.ValidationMessageFor(model => model.FileNo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoOfRecords, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NoOfRecords)
+                @Html.ValidationMessageFor(model => model.NoOfRecords)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Auditor, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Auditor)
+                @Html.ValidationMessageFor(model => model.Auditor)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
