@@ -161,6 +161,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuditController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GradeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -172,6 +173,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Audit.cs" />
+    <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Grade.cs" />
     <Compile Include="Models\HWQAToolContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -267,6 +270,11 @@
     <Content Include="Views\UserRole\Details.cshtml" />
     <Content Include="Views\UserRole\Edit.cshtml" />
     <Content Include="Views\UserRole\Index.cshtml" />
+    <Content Include="Views\Audit\Create.cshtml" />
+    <Content Include="Views\Audit\Delete.cshtml" />
+    <Content Include="Views\Audit\Details.cshtml" />
+    <Content Include="Views\Audit\Edit.cshtml" />
+    <Content Include="Views\Audit\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
