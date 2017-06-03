@@ -7,8 +7,8 @@ using System.Web;
 
 namespace HWQATool.Models
 {
-    [Table("TBL_TGRADE")]
-    public class Grade
+    [Table("TBL_PLATFORM")]
+    public class Platform
     {
         [Key]
         [Required]
@@ -19,20 +19,13 @@ namespace HWQATool.Models
         [Required]
         [Column("NAME")]
         [StringLength(50)]
-        [Index("UQ_TBL_TGRADE_TEAM_ID_NAME", 1, IsUnique = true)]
+        [Index("", 1, IsUnique = true)]
         public string Name { get; set; }
 
         [Required]
-        [Column("SAMPLE_PERCENTAGE")]
-        [DisplayFormat(DataFormatString = "{0:P2}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Sample Percentage")]
-        public decimal SamplePercentage { get; set; }
-
-        [Required]
         [Column("TEAM_ID")]
-        [Index("UQ_TBL_TGRADE_TEAM_ID_NAME", 2, IsUnique = true)]
-        [ForeignKey("Team")]
-        public int TeamId { get; set; }
+        [Index("", 2, IsUnique = true)]
+        public int TEAM_ID { get; set; }
 
         [Required]
         [Column("VERSION")]
@@ -47,8 +40,6 @@ namespace HWQATool.Models
         [StringLength(50)]
         public string LastModifiedBy { get; set; }
 
-
-        public virtual Team Team { get; set; }
 
     }
 }

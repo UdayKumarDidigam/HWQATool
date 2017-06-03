@@ -25,6 +25,7 @@ namespace HWQATool.Models
         [Required]
         [Column("QUALITY_BENCHMARK")]
         [DisplayFormat(DataFormatString = "{0:P2}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Quality Bench Mark")]
         public decimal QualityBenchMark { get; set; }
 
         [Required]
