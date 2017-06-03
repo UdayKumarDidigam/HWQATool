@@ -6,116 +6,115 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using HWQATool.Models;
 
-namespace HWQATool.Controllers
+namespace HWQATool.Models
 {
-    public class ExcelRecordController : Controller
+    public class UserRoleController : Controller
     {
         private HWQAToolContext db = new HWQAToolContext();
 
-        // GET: /ExcelRecord/
+        // GET: /UserRole/
         public ActionResult Index()
         {
-            var excelrecords = db.ExcelRecords.Include(e => e.Team);
-            return View(excelrecords.ToList());
+            var userroles = db.UserRoles.Include(u => u.User);
+            return View(userroles.ToList());
         }
 
-        // GET: /ExcelRecord/Details/5
-        public ActionResult Details(long? id)
+        // GET: /UserRole/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ExcelRecord excelrecord = db.ExcelRecords.Find(id);
-            if (excelrecord == null)
+            UserRole userrole = db.UserRoles.Find(id);
+            if (userrole == null)
             {
                 return HttpNotFound();
             }
-            return View(excelrecord);
+            return View(userrole);
         }
 
-        // GET: /ExcelRecord/Create
+        // GET: /UserRole/Create
         public ActionResult Create()
         {
-            ViewBag.TeamId = new SelectList(db.Teams, "Id", "Name");
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
-        // POST: /ExcelRecord/Create
+        // POST: /UserRole/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,TeamId,IsError,ErrorCode,Client,Task,Platform,Processor,ProcessDate,ServiceRequestNo,AuditNo,BatchNo,FileNo,NoOfRecords,Auditor")] ExcelRecord excelrecord)
+        public ActionResult Create([Bind(Include="Id,UserId,Role,Version,LastModifiedAt,LastModifiedBy")] UserRole userrole)
         {
             if (ModelState.IsValid)
             {
-                db.ExcelRecords.Add(excelrecord);
+                db.UserRoles.Add(userrole);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TeamId = new SelectList(db.Teams, "Id", "Name", excelrecord.TeamId);
-            return View(excelrecord);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", userrole.UserId);
+            return View(userrole);
         }
 
-        // GET: /ExcelRecord/Edit/5
-        public ActionResult Edit(long? id)
+        // GET: /UserRole/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ExcelRecord excelrecord = db.ExcelRecords.Find(id);
-            if (excelrecord == null)
+            UserRole userrole = db.UserRoles.Find(id);
+            if (userrole == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.TeamId = new SelectList(db.Teams, "Id", "Name", excelrecord.TeamId);
-            return View(excelrecord);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", userrole.UserId);
+            return View(userrole);
         }
 
-        // POST: /ExcelRecord/Edit/5
+        // POST: /UserRole/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,TeamId,IsError,ErrorCode,Client,Task,Platform,Processor,ProcessDate,ServiceRequestNo,AuditNo,BatchNo,FileNo,NoOfRecords,Auditor")] ExcelRecord excelrecord)
+        public ActionResult Edit([Bind(Include="Id,UserId,Role,Version,LastModifiedAt,LastModifiedBy")] UserRole userrole)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(excelrecord).State = EntityState.Modified;
+                db.Entry(userrole).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TeamId = new SelectList(db.Teams, "Id", "Name", excelrecord.TeamId);
-            return View(excelrecord);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", userrole.UserId);
+            return View(userrole);
         }
 
-        // GET: /ExcelRecord/Delete/5
-        public ActionResult Delete(long? id)
+        // GET: /UserRole/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ExcelRecord excelrecord = db.ExcelRecords.Find(id);
-            if (excelrecord == null)
+            UserRole userrole = db.UserRoles.Find(id);
+            if (userrole == null)
             {
                 return HttpNotFound();
             }
-            return View(excelrecord);
+            return View(userrole);
         }
 
-        // POST: /ExcelRecord/Delete/5
+        // POST: /UserRole/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            ExcelRecord excelrecord = db.ExcelRecords.Find(id);
-            db.ExcelRecords.Remove(excelrecord);
+            UserRole userrole = db.UserRoles.Find(id);
+            db.UserRoles.Remove(userrole);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -1,0 +1,202 @@
+﻿@model HWQATool.Models.Audit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Audit</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Platform.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Platform.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTask.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubTask.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuditNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuditNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BatchNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BatchNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceRequestNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceRequestNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcessedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProcessedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Processor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Processor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Auditor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Auditor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuditDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuditDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuditorComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuditorComments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISDefect)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISDefect)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsLearning)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsLearning)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEscalation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEscalation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsClientFocus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsClientFocus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDuplicate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDuplicate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSampled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsSampled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfRecords)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfRecords)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Version)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Version)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastModifiedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastModifiedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastModifiedBy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

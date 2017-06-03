@@ -1,0 +1,165 @@
+﻿@model IEnumerable<HWQATool.Models.Audit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Platform.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTask.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuditNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BatchNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceRequestNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcessedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Processor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Auditor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuditDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuditorComments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ISDefect)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsLearning)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEscalation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsClientFocus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDuplicate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsSampled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfRecords)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Version)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastModifiedAt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastModifiedBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Platform.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubTask.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuditNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BatchNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceRequestNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcessedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Processor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Auditor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuditDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuditorComments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISDefect)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsLearning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEscalation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsClientFocus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDuplicate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsSampled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfRecords)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Version)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastModifiedAt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastModifiedBy)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
