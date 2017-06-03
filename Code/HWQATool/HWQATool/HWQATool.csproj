@@ -162,18 +162,22 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ExcelRecordController.cs" />
     <Compile Include="Controllers\GradeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SubTaskController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ExcelRecord.cs" />
     <Compile Include="Models\Grade.cs" />
     <Compile Include="Models\HWQAToolContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Platfrom.cs" />
+    <Compile Include="Models\SubTask.cs" />
     <Compile Include="Models\Task.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Team.cs" />
@@ -247,6 +251,16 @@
     <Content Include="Views\Error\Details.cshtml" />
     <Content Include="Views\Error\Edit.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\SubTask\Create.cshtml" />
+    <Content Include="Views\SubTask\Delete.cshtml" />
+    <Content Include="Views\SubTask\Details.cshtml" />
+    <Content Include="Views\SubTask\Edit.cshtml" />
+    <Content Include="Views\SubTask\Index.cshtml" />
+    <Content Include="Views\ExcelRecord\Create.cshtml" />
+    <Content Include="Views\ExcelRecord\Delete.cshtml" />
+    <Content Include="Views\ExcelRecord\Details.cshtml" />
+    <Content Include="Views\ExcelRecord\Edit.cshtml" />
+    <Content Include="Views\ExcelRecord\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
