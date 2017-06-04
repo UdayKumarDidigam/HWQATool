@@ -46,7 +46,7 @@ namespace HWQATool.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Name,QualityBenchMark,Version,LastModifiedAt,LastModifiedBy")] Team team)
+        public ActionResult Create([Bind(Include = "Name,QualityBenchMark")] Team team)
         {
             if (ModelState.IsValid)
             {
@@ -78,10 +78,11 @@ namespace HWQATool.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Name,QualityBenchMark,Version,LastModifiedAt,LastModifiedBy")] Team team)
+        public ActionResult Edit([Bind(Include = "Id,Name,QualityBenchMark,Version")] Team team)
         {
             if (ModelState.IsValid)
             {
+                team.Version++;
                 db.Entry(team).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

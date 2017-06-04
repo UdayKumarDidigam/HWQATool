@@ -133,9 +133,9 @@ namespace HWQATool.Controllers
             base.Dispose(disposing);
         }
 
-        public void ExportListUsingEPPlus()
+        public void ExportListUsingEPPlus(int id)
         {
-            var data = db.ExcelRecords.Include(e => e.Team);
+            var data = db.ExcelRecords.Where(x=>x.TeamId == id).Include(e => e.Team);
 
             ExcelPackage excel = new ExcelPackage();
             var workSheet = excel.Workbook.Worksheets.Add("Sheet1");

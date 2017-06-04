@@ -31,31 +31,6 @@
                 @Html.ValidationMessageFor(model => model.QualityBenchMark)
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Version, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Version)
-                @Html.ValidationMessageFor(model => model.Version)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastModifiedAt, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastModifiedAt)
-                @Html.ValidationMessageFor(model => model.LastModifiedAt)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastModifiedBy, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastModifiedBy)
-                @Html.ValidationMessageFor(model => model.LastModifiedBy)
-            </div>
-        </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />

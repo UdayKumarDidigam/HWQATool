@@ -165,8 +165,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ExcelRecordController.cs" />
+    <Compile Include="Controllers\ExcelRecordController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\TeamController.cs" />
+    <Compile Include="Controllers\UploadController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -178,6 +183,7 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\UploadTrack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

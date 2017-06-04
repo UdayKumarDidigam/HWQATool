@@ -20,7 +20,7 @@ namespace HWQATool.Models
         }
 
         public System.Data.Entity.DbSet<HWQATool.Models.Team> Teams { get; set; }
-
+        public System.Data.Entity.DbSet<HWQATool.Models.UploadTrack> UploadTracks { get; set; }
         //public System.Data.Entity.DbSet<HWQATool.Models.Grade> Grades { get; set; }
 
         //public System.Data.Entity.DbSet<HWQATool.Models.Function> Functions { get; set; }

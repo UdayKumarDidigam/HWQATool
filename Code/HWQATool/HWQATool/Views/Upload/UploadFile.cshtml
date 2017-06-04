@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<HWQATool.Models.UploadTrack>
+
+@{
     ViewBag.Title = "UploadFile";
 }
 
@@ -6,7 +8,7 @@
 
 @using (Html.BeginForm("UploadFile", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-
+    @Html.DropDownList("TeamId", (SelectList)ViewBag.Teams, "--Select Team--", new { @class = "form-control" })
     <div>
         @Html.TextBox("file", "", new { type = "file" }) <br />
 
@@ -16,5 +18,39 @@
 
     </div>
 
+
+    <table class="table">
+        <tr>
+            <th>
+                S. No.
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OriginalFileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>Report</th>
+        </tr>
+
+        @foreach (var item in Model.Select((item, index) => new { item, index }))
+        {
+            <tr>
+                <td>
+                    @(item.index + 1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.item.OriginalFileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.item.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Export", "ExportListUsingEPPlus", "ExcelRecord", new { id = item.item.Id }, null)
+                </td>
+            </tr>
+        }
+
+    </table>
 
 }

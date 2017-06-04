@@ -9,6 +9,13 @@ namespace HWQATool.Models
 {
     public class BaseEntity<T>
     {
+        public BaseEntity()
+        {
+            this.Version = 1;
+            this.LastModifiedAt = DateTime.Now;
+            this.LastModifiedBy = "Admin";
+        }
+
         [Key]
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
