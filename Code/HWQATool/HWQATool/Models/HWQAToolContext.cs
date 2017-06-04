@@ -36,6 +36,8 @@ namespace HWQATool.Models
         public System.Data.Entity.DbSet<HWQATool.Models.Client> Clients { get; set; }
 
         public System.Data.Entity.DbSet<HWQATool.Models.Platform> Platforms { get; set; }
+
+        public System.Data.Entity.DbSet<HWQATool.Models.ExcelRecord> ExcelRecords { get; set; }
     
     }
 }
