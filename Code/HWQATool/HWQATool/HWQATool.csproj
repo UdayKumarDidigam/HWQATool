@@ -165,37 +165,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AuditController.cs" />
-    <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\ExcelReadController.cs" />
     <Compile Include="Controllers\ExcelRecordController.cs" />
-    <Compile Include="Controllers\ExcelWorksheet.cs" />
-    <Compile Include="Controllers\GradeController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SubTaskController.cs" />
-    <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
-    <Compile Include="Controllers\UploadController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Audit.cs" />
     <Compile Include="Models\BaseEntity.cs" />
-    <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ExcelRecord.cs" />
-    <Compile Include="Models\Grade.cs" />
-    <Compile Include="Models\HWQAToolContext.cs" />
+    <Compile Include="Models\HWQAToolContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Platfrom.cs" />
-    <Compile Include="Models\SubTask.cs" />
-    <Compile Include="Models\Task.cs" />
-    <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Team.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserRole.cs" />
-    <Compile Include="Models\UserRoleController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
