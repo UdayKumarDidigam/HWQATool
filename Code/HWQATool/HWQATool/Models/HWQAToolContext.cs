@@ -9,7 +9,7 @@ namespace HWQATool.Models
         }
 
         public DbSet<Team> Teams { get; set; }
-        public DbSet<Function> Functions { get; set; }
+        public DbSet<Task> Tasks { get; set; }
         public DbSet<SubTask> SubTasks { get; set; }
         public DbSet<Error> Errors { get; set; }
         public DbSet<Grade> Grades { get; set; }
