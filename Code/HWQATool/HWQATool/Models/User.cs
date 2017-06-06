@@ -11,13 +11,13 @@ namespace HWQATool.Models
         [Index("UQ_TBL_USER_LOGIN_ID", IsUnique = true)]
         [StringLength(20)]
 
-        public int LoginId { get; set; }
+        public string LoginId { get; set; }
 
         [Required]
         [Column("ASSOCIATE_ID", TypeName = "VARCHAR")]
         [Index("UQ_TBL_USER_ASSOCIATE_ID", IsUnique = true)]
         [StringLength(10)]
-        public int AssociateId { get; set; }
+        public string AssociateId { get; set; }
 
         [Required]
         [Column("EMAIL", TypeName = "VARCHAR")]
