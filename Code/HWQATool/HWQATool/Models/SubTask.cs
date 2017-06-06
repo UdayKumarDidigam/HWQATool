@@ -18,6 +18,6 @@ namespace HWQATool.Models
         [StringLength(50)]
         public string Name { get; set; }
 
-        public virtual Function Function { get; set; }
+        public virtual Task Task { get; set; }
     }
 }
