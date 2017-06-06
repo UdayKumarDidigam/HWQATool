@@ -4,31 +4,24 @@ namespace HWQATool.Models
 {
     public class HWQAToolContext : DbContext
     {
-        // You can add custom code to this file. Changes will not be overwritten.
-        // 
-        // If you want Entity Framework to drop and regenerate your database
-        // automatically whenever you change your model schema, please use data migrations.
-        // For more information refer to the documentation:
-        // http://msdn.microsoft.com/en-us/data/jj591621.aspx
-    
         public HWQAToolContext() : base("name=HWQAToolContext")
         {
         }
 
-        public System.Data.Entity.DbSet<HWQATool.Models.Team> Teams { get; set; }
-        public System.Data.Entity.DbSet<HWQATool.Models.Function> Functions { get; set; }
-        public System.Data.Entity.DbSet<HWQATool.Models.SubTask> SubTasks { get; set; }
-        public System.Data.Entity.DbSet<HWQATool.Models.Error> Errors { get; set; }
-        public System.Data.Entity.DbSet<HWQATool.Models.Grade> Grades { get; set; }
-        public System.Data.Entity.DbSet<HWQATool.Models.User> Users { get; set; }
-        public System.Data.Entity.DbSet<HWQATool.Models.UserRole> UserRoles { get; set; }
-        public System.Data.Entity.DbSet<HWQATool.Models.Client> Clients { get; set; }
-        public System.Data.Entity.DbSet<HWQATool.Models.Platform> Platforms { get; set; }
-        public System.Data.Entity.DbSet<HWQATool.Models.UploadTrack> UploadTracks { get; set; }
-
-        //public System.Data.Entity.DbSet<HWQATool.Models.Audit> Audits { get; set; }
-
-        public System.Data.Entity.DbSet<HWQATool.Models.ExcelRecord> ExcelRecords { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<Function> Functions { get; set; }
+        public DbSet<SubTask> SubTasks { get; set; }
+        public DbSet<Error> Errors { get; set; }
+        public DbSet<Grade> Grades { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Platform> Platforms { get; set; }
+        public DbSet<Audit> Audits { get; set; }
+        public DbSet<AuditFinding> AuditFindings { get; set; }
+        public DbSet<AuditTimeSlot> AuditTimeSlots { get; set; }
+        public DbSet<UploadTrack> UploadTracks { get; set; }
+        public DbSet<ExcelRecord> ExcelRecords { get; set; }
     
     }
 }
