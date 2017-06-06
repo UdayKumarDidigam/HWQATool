@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HWQATool.Models
 {
     [Table("TBL_TASK")]
-    public class Function : BaseEntity<int>
+    public class Task : BaseEntity<int>
     {
         [Required]
         [Column("TEAM_ID")]
