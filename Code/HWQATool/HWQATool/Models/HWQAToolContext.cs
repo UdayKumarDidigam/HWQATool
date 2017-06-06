@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace HWQATool.Models
 {
@@ -21,8 +17,12 @@ namespace HWQATool.Models
 
         public System.Data.Entity.DbSet<HWQATool.Models.Team> Teams { get; set; }
         public System.Data.Entity.DbSet<HWQATool.Models.Function> Functions { get; set; }
+        public System.Data.Entity.DbSet<HWQATool.Models.Grade> Grades { get; set; }
+        public System.Data.Entity.DbSet<HWQATool.Models.Client> Clients { get; set; }
+        public System.Data.Entity.DbSet<HWQATool.Models.Platform> Platforms { get; set; }
         public System.Data.Entity.DbSet<HWQATool.Models.UploadTrack> UploadTracks { get; set; }
-        //public System.Data.Entity.DbSet<HWQATool.Models.Grade> Grades { get; set; }
+        //
+
         //public System.Data.Entity.DbSet<HWQATool.Models.Error> Errors { get; set; }
         //public System.Data.Entity.DbSet<HWQATool.Models.SubTask> SubTasks { get; set; }
         //public System.Data.Entity.DbSet<HWQATool.Models.User> Users { get; set; }
@@ -31,9 +31,9 @@ namespace HWQATool.Models
 
         //public System.Data.Entity.DbSet<HWQATool.Models.Audit> Audits { get; set; }
 
-        //public System.Data.Entity.DbSet<HWQATool.Models.Client> Clients { get; set; }
+        //
 
-        //public System.Data.Entity.DbSet<HWQATool.Models.Platform> Platforms { get; set; }
+        //
 
         public System.Data.Entity.DbSet<HWQATool.Models.ExcelRecord> ExcelRecords { get; set; }
     
