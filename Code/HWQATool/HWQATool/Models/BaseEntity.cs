@@ -26,17 +26,20 @@ namespace HWQATool.Models
 
         [Required]
         [Column("VERSION")]
+        [ScaffoldColumn(false)]        
         public int Version { get; set; }
 
         [Required]
         [Column("LAST_MODIFIED_AT")]
         [Display(Name = "Last Modified At")]
+        [ScaffoldColumn(false)]
         public DateTime LastModifiedAt { get; set; }
 
         [Required]
         [Column("LAST_MODIFIED_BY", TypeName = "VARCHAR")]
         [StringLength(50)]
         [Display(Name = "Last Modified By")]
+        [ScaffoldColumn(false)]
         public string LastModifiedBy { get; set; }
     }
 }
