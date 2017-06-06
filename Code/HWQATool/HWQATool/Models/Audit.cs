@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace HWQATool.Models
 {
@@ -44,8 +41,7 @@ namespace HWQATool.Models
         [Column("SUB_TASK_ID")]
         public int? SubTaskId { get; set; }
 
-        [Column("AUDITOR")]
-        [ForeignKey("User")]
+        [Column("AUDITOR")]        
         public int? Auditor { get; set; }
 
         [Column("AUDIT_DATE")]
