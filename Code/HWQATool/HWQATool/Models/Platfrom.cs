@@ -1,45 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace HWQATool.Models
 {
     [Table("TBL_PLATFORM")]
-    public class Platform
+    public class Platform : BaseEntity<int>
     {
-        [Key]
-        [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("ID")]
-        public int Id { get; set; }
-
-        [Required]
-        [Column("NAME")]
-        [StringLength(50)]
-        [Index("", 1, IsUnique = true)]
-        public string Name { get; set; }
-
         [Required]
         [Column("TEAM_ID")]
-        [Index("", 2, IsUnique = true)]
-        public int TEAM_ID { get; set; }
+        [Index("UQ_TBL_PLATFORM_TEAM_ID_NAME", 1, IsUnique = true)]
+        [ForeignKey("Team")]
+        public int TeamId { get; set; }
 
         [Required]
-        [Column("VERSION")]
-        public int Version { get; set; }
-
-        [Required]
-        [Column("LAST_MODIFIED_AT")]
-        public DateTime LastModifiedAt { get; set; }
-
-        [Required]
-        [Column("LAST_MODIFIED_BY")]
+        [Column("Name", TypeName = "VARCHAR")]
         [StringLength(50)]
-        public string LastModifiedBy { get; set; }
+        [Index("UQ_TBL_PLATFORM_TEAM_ID_NAME", 2, IsUnique = true)]
+        public string Name { get; set; }
 
-
+        public virtual Team Team { get; set; }
     }
 }
