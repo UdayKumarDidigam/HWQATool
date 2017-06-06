@@ -1,4 +1,6 @@
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using HWQATool.Models;
 
 namespace HWQATool.Models
 {
@@ -7,7 +9,10 @@ namespace HWQATool.Models
         public HWQAToolContext() : base("name=HWQAToolContext")
         {
         }
-
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+        }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Task> Tasks { get; set; }
         public DbSet<SubTask> SubTasks { get; set; }
