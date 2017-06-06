@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,121 +8,104 @@ using System.Web;
 namespace HWQATool.Models
 {
     [Table("TBL_AUDIT")]
-    public class Audit
+    public class Audit : BaseEntity<long>
     {
-        [Key]
-        [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("ID")]
-        public int Id { get; set; }
-
-        [Required]
         [Column("AUDIT_NO")]
         [StringLength(50)]
+        [Display(Name = "Audit Number")]
         public string AuditNumber { get; set; }
 
-        [Required]
         [Column("BATCH_NO")]
         [StringLength(50)]
+        [Display(Name = "Batch Number")]
         public string BatchNumber { get; set; }
 
-
-        [Required]
         [Column("FILE_NO")]
         [StringLength(50)]
+        [Display(Name = "File Number")]
         public string FileNumber { get; set; }
 
-        [Required]
         [Column("SERVICE_REQUEST_NO")]
         [StringLength(50)]
+        [Display(Name = "Service Request Number")]
         public string ServiceRequestNumber { get; set; }
 
         [Required]
         [Column("PROCESSED_DATE")]
+        [Display(Name = "Processed Date")]
         public DateTime ProcessedDate { get; set; }
 
-        [Required]
         [Column("PROCESSOR")]
-        public int Processor { get; set; }
+        public int? Processor { get; set; }
 
-        [Required]
-        [Column("PLATFORM_ID")]
-        [ForeignKey("Platform")]
-        public int PlatformId { get; set; }
-
-        [Required]
-        [Column("SUB_TASK_ID")]
-        [ForeignKey("SubTask")]
-        public int SubTaskId { get; set; }
-
-        [Required]
         [Column("CLIENT_ID")]
-        [ForeignKey("Client")]
-        public int ClientId { get; set; }
+        public int? ClientId { get; set; }
 
-        [Required]
+        [Column("SUB_TASK_ID")]
+        public int? SubTaskId { get; set; }
+
         [Column("AUDITOR")]
-        public int Auditor { get; set; }
+        [ForeignKey("User")]
+        public int? Auditor { get; set; }
 
-        [Required]
         [Column("AUDIT_DATE")]
-        [StringLength(50)]
-        public string AuditDate { get; set; }
+        [Display(Name = "Audit Date")]
+        public DateTime? AuditDate { get; set; }
 
-        [Required]
-        [Column("AUDITOR_COMMENTS")]
-        [StringLength(50)]
-        public string AuditorComments { get; set; }
+        [Column("PLATFORM_ID")]
+        public int? PlatformId { get; set; }
 
-        [Required]
+        [Column("COMMENTS")]
+        [StringLength(500)]
+        public string Comments { get; set; }
+
         [Column("IS_DEFECT")]
-        public Boolean ISDefect { get; set; }
+        [Display(Name = "Defect")]
+        public bool IsDefect { get; set; }
 
-        [Required]
         [Column("IS_LEARNING")]
-        public Boolean IsLearning { get; set; }
+        [Display(Name = "Learning")]
+        public bool IsLearning { get; set; }
 
-
-        [Required]
         [Column("IS_ESCALATION")]
-        public Boolean IsEscalation { get; set; }
+        [Display(Name = "Escalation")]
+        public bool IsEscalation { get; set; }
 
-        [Required]
-        [Column("IS_CLIENTFOCUS")]
-        public Boolean IsClientFocus { get; set; }
+        [Column("IS_CLIENT_FOCUS")]
+        [Display(Name = "Client Focus")]
+        public bool IsClientFocus { get; set; }
 
-        [Required]
         [Column("IS_DUPLICATE")]
-        public Boolean IsDuplicate { get; set; }
+        [Display(Name = "Duplicate")]
+        public bool IsDuplicate { get; set; }
 
-        [Required]
         [Column("IS_SAMPLED")]
-        public Boolean IsSampled { get; set; }
+        [Display(Name = "Sampled")]
+        public bool IsSampled { get; set; }
 
         [Required]
         [Column("NO_OF_RECORDS")]
+        [Display(Name = "No Of Records")]
         public int NoOfRecords { get; set; }
+
+        [Column("Total_Defects")]
+        [Display(Name = "Total Defects")]
+        public int? TotalDefects { get; set; }
 
         [Required]
         [Column("STATUS")]
-        public int Status { get; set; }
+        public AuditStatus Status { get; set; }
 
-        [Required]
-        [Column("VERSION")]
-        public int Version { get; set; }
+        public virtual User P { get; set; }
+    }
 
-        [Required]
-        [Column("LAST_MODIFIED_AT")]
-        public DateTime LastModifiedAt { get; set; }
-
-        [Required]
-        [Column("LAST_MODIFIED_BY")]
-        [StringLength(50)]
-        public string LastModifiedBy { get; set; }
-
-        public virtual Platform Platform { get; set; }
-        public virtual SubTask SubTask { get; set; }
-        public virtual Client Client { get; set; }
-        public virtual User User { get; set; }
+    public enum AuditStatus
+    {
+        NotAssigned,
+        Assigned,
+        InProgress,
+        Hold,
+        Reject,
+        Completed
     }
 }
