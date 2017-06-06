@@ -27,6 +27,6 @@ namespace HWQATool.Models
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
         public decimal Weightage { get; set; }
 
-        public virtual Function Function { get; set; }
+        public virtual Task Task { get; set; }
     }
 }
