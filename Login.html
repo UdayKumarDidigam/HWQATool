@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>H&W QA Tool</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		body, html {
+			height: 100%;
+			background-repeat: no-repeat;
+			background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+			background-image: url(http://panorama/wp-content/uploads/2015/12/photo-1414170562806-9d670e90c091.jpg);
+			background-size: cover;
+			background-attachment: fixed;
+		}
+
+		.card-container.card {
+			max-width: 350px;
+			padding: 10px 20px 40px 20px;            
+			background-color: #F7F7F7;        
+			margin: 0 auto 25px;   
+			margin-top: 150px;			
+			-moz-border-radius: 2px;
+			-webkit-border-radius: 2px;
+			border-radius: 2px;
+			-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+			-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+		}
+
+		.profile-img-card {
+			margin: 0 auto 10px;
+			display: block;			
+		}
+	
+	</style>
+</head>
+<body>
+    <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="http://www.adp.in/assets/vfs/commons/responsive/images/logo.png" />
+            <h4 class="text-center">Welcome to H&W QA Tool</h4>
+            <p class="text-center">Sign in with your network credentials</p>            
+			<form class="form">  
+				<div class="alert alert-danger alert-dismissable">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+				<strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+			  </div>
+				<div class="form-group has-success has-feedback">
+				  <label class="control-label" for="txtUsername">Username</label>      
+					<input type="text" id="txtUsername" name="txtUsername" placeholder="Username" class="form-control" >
+					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+					<span for="txtUsername" class="help-block">Please enter Username</span>
+				  </div>      
+				<div class="form-group has-error has-feedback">
+				  <label class="control-label" for="txtPassword">Password</label>      
+					<input id="txtPassword" name="txtPassword" type="text" class="form-control" placeholder="Password"  >
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					<span for="txtUsername" class="help-block">Please enter Password</span>
+				  </div>    
+				  <button ID="btnLogin" class="btn btn-primary btn-block btn-lg">Login</button>
+			  </form>
+        </div>
+        <!-- /card-container -->
+    </div>
+    <!-- /container -->
+</body>
+</html>
