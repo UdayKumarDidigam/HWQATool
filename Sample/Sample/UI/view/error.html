@@ -1,0 +1,90 @@
+﻿<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="defaults()">
+    <i class="glyphicon glyphicon-plus"></i>
+    Add Error
+</button>
+<br /><br />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>S.No.</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Weightage</th>
+            <th>Task Id</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="error1 in errors track by $index">
+            <td>{{$index + 1}}</td>
+            <td>{{error1.name}}</td>
+            <td>{{error1.description}}</td>
+            <td>{{error1.weightage}}</td>
+            <td>{{error1.taskId}}</td>
+            <td>
+                <button type="button" class="btn btn-link" ng-click="editError($index)" data-toggle="modal" data-target="#myModal">
+                    <i class=" glyphicon glyphicon-pencil">
+                    </i>
+                    Edit
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-link" ng-click="deleteError($index)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form name="error1">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Error</h4>
+                    <input type="hidden" ng-model="error1.id" />
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="txtName">Name</label>
+                        <input type="text" class="form-control" id="txtName" name="txtName" maxlength="50" ng-model="error1.name" ng-required="true">
+                        <span ng-show="error1.txtName.$touched && error1.txtName.$invalid">Please enter name</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtDesc">Description</label>
+                        <input type="text" class="form-control" id="txtDesc" name="txtDesc" maxlength="50" ng-model="error1.description" ng-required="true">
+                        <span ng-show="error1.txtDesc.$touched && error1.txtDesc.$invalid">Please enter description</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtWeightage">Weightage</label>
+                        <input type="text" class="form-control" id="txtWeightage" name="txtWeightage" maxlength="50" ng-model="error1.weightage" ng-required="true">
+                        <span ng-show="error1.txtWeightage.$touched && error1.txtWeightage.$invalid">Please enter weightage</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtTaskId">Task Id:</label>
+                        <input type="text" class="form-control" id="txtTaskId" name="txtTaskId" ng-model="error1.taskId" ng-required="true">
+                        <span ng-show="error1.txtTaskId.$touched && error1.txtTaskId.$invalid">Please enter task id</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="error1.$invalid" ng-click="addError()" data-dismiss="modal">Submit</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

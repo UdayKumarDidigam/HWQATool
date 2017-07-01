@@ -1,0 +1,75 @@
+﻿<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="defaults()">
+    <i class="glyphicon glyphicon-plus"></i>
+    Create New Team
+</button>
+<br /><br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>S. No.#</th>
+            <th>Name</th>
+            <th>Quality Bench Mark</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="team in teams track by $index">
+            <td>{{$index + 1}}</td>
+            <td>{{team.name}}</td>
+            <td>{{team.qualityBenchMark}}</td>
+            <td>
+                <button type="button" class="btn btn-link" ng-click="editTeam($index)" data-toggle="modal" data-target="#myModal">
+                    <i class=" glyphicon glyphicon-pencil">
+                    </i>
+                    Edit
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-link" ng-click="deleteTeam($index)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form name="team">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Create New Team</h4>
+                    <input type="hidden" ng-model="team.id" />
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="txtName">Name</label>
+                        <input type="text" class="form-control" id="txtName" name="txtName" maxlength="50" ng-model="team.name" ng-required="true">
+                        <span ng-show="team.txtName.$touched && team.txtName.$invalid">Please enter name</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtQualityBenchMark">Quality Bench Mark:</label>
+                        <input type="text" class="form-control" id="txtQualityBenchMark" name="txtQualityBenchMark" ng-model="team.qualityBenchMark" ng-required="true">
+                        <span ng-show="team.txtQualityBenchMark.$touched && team.txtQualityBenchMark.$invalid">Please enter quality bench mark</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="team.$invalid" ng-click="addTeam()" data-dismiss="modal">Submit</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

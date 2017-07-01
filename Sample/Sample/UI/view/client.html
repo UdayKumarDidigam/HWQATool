@@ -1,0 +1,98 @@
+﻿<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="defaults()">
+    <i class="glyphicon glyphicon-plus"></i>
+    Add client
+</button>
+<br /><br />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>S.no</th>
+            <th>Name</th>
+            <th>Team Id</th>
+            <th>Is Key Client</th>
+            <th>Sample Percentage</th>
+            <th>Is Active</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="client in clients track by $index">
+            <td>{{$index + 1}}</td>
+            <td>{{client.name}}</td>
+            <td>{{client.teamId}}</td>
+            <td>{{client.isKeyClient}}</td>
+            <td>{{client.samplePercentage}}</td>
+            <td>{{client.isActive}}</td>
+            <td>
+                <button type="button" class="btn btn-link" ng-click="editClient($index)" data-toggle="modal" data-target="#myModal">
+                    <i class=" glyphicon glyphicon-pencil">
+                    </i>
+                    Edit
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-link" ng-click="deleteClient($index)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form name="client">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Create New Client</h4>
+                    <input type="hidden" ng-model="client.id" />
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="cliName">Name</label>
+                        <input type="text" class="form-control" id="cliName" name="cliName" maxlength="50" ng-model="client.name" ng-required="true">
+                        <span ng-show="client.cliName.$touched && client.cliName.$invalid">Please enter name</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cliTeamId">Team Id:</label>
+                        <input type="text" class="form-control" id="cliTeamId" name="cliTeamId" ng-model="client.teamId" ng-required="true">
+                        <span ng-show="client.cliTeamId.$touched && client.cliTeamId.$invalid">Please enter team id</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cliIsKeyClient">Is Key Client:</label>
+                        <input type="text" class="form-control" id="cliIsKeyClient" name="cliIsKeyClient" ng-model="client.isKeyClient" ng-required="true">
+                        <span ng-show="client.cliIsKeyClient.$touched && client.cliIsKeyClient.$invalid">Please enter client key</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cliSamplePercentage">Sample Percentage:</label>
+                        <input type="text" class="form-control" id="cliSamplePercentage" name="cliSamplePercentage" maxlength="50" ng-model="client.samplePercentage" ng-required="true">
+                        <span ng-show="client.cliSamplePercentage.$touched && client.cliSamplePercentage.$invalid">Please enter Sample Percentage</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cliIsActive">Is Active:</label>
+                        <input type="text" class="form-control" id="cliIsActive" name="cliIsKeyClient" ng-model="client.isActive" ng-required="true">
+                        <span ng-show="client.cliIsActive.$touched && client.cliIsActive.$invalid">Please enter client key</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="client.$invalid" ng-click="addClient()" data-dismiss="modal">Submit</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,83 @@
+﻿<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="defaults()">
+    <i class="glyphicon glyphicon-plus"></i>
+    Create New Task
+</button>
+<br /><br />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>S. No.#</th>
+            <th>Name</th>
+            <th>SamplePercentage</th>
+            <th>TeamId</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="task in tasks track by $index">
+            <td>{{$index + 1}}</td>
+            <td>{{task.name}}</td>
+            <td>{{task.samplePercentage}}</td>
+            <td>{{task.teamId}}</td>
+            <td>
+                <button type="button" class="btn btn-link" ng-click="editTask($index)" data-toggle="modal" data-target="#myModal">
+                    <i class=" glyphicon glyphicon-pencil">
+                    </i>
+                    Edit
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-link" ng-click="deleteTask($index)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form name="task">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Create New Task</h4>
+                    <input type="hidden" ng-model="task.id" />
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="txtName">Name</label>
+                        <input type="text" class="form-control" id="txtName" name="txtName" maxlength="50" ng-model="task.name" ng-required="true">
+                        <span ng-show="task.txtName.$touched && task.txtName.$invalid">Please enter name</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtSamplePercentage">samplepercentage:</label>
+                        <input type="text" class="form-control" id="txtSamplePercentage" name="txtSamplePercentage" ng-model="task.samplePercentage" ng-required="true">
+                        <span ng-show="task.txtSamplePercentage.$touched && task.txtSamplePercentage.$invalid">Please enter sample percentage</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtTeamId">teamId:</label>
+                        <input type="text" class="form-control" id="txtTeamId" name="txtTeamId" ng-model="task.teamId" ng-required="true">
+                        <span ng-show="task.txtTeamId.$touched && task.txtTeamId.$invalid">Please enter team Id</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="task.$invalid" ng-click="addTask()" data-dismiss="modal">Submit</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

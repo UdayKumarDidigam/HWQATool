@@ -1,0 +1,87 @@
+﻿<!--<input type="file" id="file" name="file" multiple
+       onchange="angular.element(this).scope().getFileDetails(this)" />
+
+<input type="button" ng-click="uploadFiles()" value="Upload" />
+    -->
+<p><progress id="pro" value="0"></progress></p>
+
+<div class="container">
+    <h1>Upload</h1> <hr />
+    <div class="row">
+        <div class="form-group col-md-3 col-sm-4">
+            <label for="Process"><h4><b>Process:</b></h4></label>
+            <select class="form-control" id="Process">
+                <option>P1</option>
+                <option>P2</option>
+                <option>P3</option>
+                <option>P4</option>
+            </select>
+        </div>
+    </div>  </br>  </br>
+    <div class="row">
+        <h4><b>Select Excel to Upload:</b></h4>
+        <div class="input-group">
+            <input type="text" class="form-control" ng-model="uploadFileName" disabled="disabled">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-show="uploadFileName" ng-click="clear()">
+                    <span class="glyphicon glyphicon-remove"></span> Clear
+
+                </button>
+                <a href="upload.html">upload.html</a>
+                <div class="btn btn-default image-preview-input">
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                    <span class="image-preview-input-title" ng-bind="uploadFileName?'Change':'Browse'">Browse</span>
+                    <input ng-files="getTheFiles($files)" ng-click="setFileName()" type="file" accept="images/*" name="input-file-preview" id="input-file-preview" /> <!-- rename it -->
+                </div>
+                <button class="btn btn-primary" ng-click="uploadFiles()" ng-disabled="!uploadFileName">
+                    <span class="glyphicon glyphicon-upload"></span>
+                    Upload
+                </button>
+            </div>
+        </div>
+    </div></br></br></br></br></br>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>S. No.</th>
+                    <th>Original File Name</th>
+                    <th>Total</th>
+                    <th>Success</th>
+                    <th>Failed</th>
+                    <th>Status</th>
+                    <th>Report</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="upload in uploads track by $index">
+                    <td>{{$index + 1}}</td>
+                    <td>{{upload.originalFileName}}</td>
+                    <td>{{upload.total}}</td>
+                    <td>{{upload.sucess}}</td>
+                    <td>{{upload.failed}}</td>
+                    <td>
+                        <div ng-switch={{upload.status}}>
+                            <div ng-switch-when=1>
+                               <p>Submitted</p>
+                            </div>
+                            <div ng-switch-when=2>
+                                <p>Queued </p>
+                            </div>
+                            <div ng-switch-when=3>
+                              <p> Proccessing</p>
+                            </div>
+                            <div ng-switch-when=4>
+                                <p> Completed </p>
+                            </div>
+                            <div ng-switch-when=4>
+                                <p> Error </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{upload.report}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
