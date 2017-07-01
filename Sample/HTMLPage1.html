@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS File Upoad Example with $http and FormData</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <style>
+        .image-preview-input input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            width: 95px;
+        }
+    </style>
+</head>
+
+<body ng-app="fupApp">
+    <div ng-controller="fupController">
+        <div class="container">
+            <div class="row">
+                Hello<br />Hello<br />Hello<br />Hello<br />Hello<br />
+
+            </div>
+            <div class="row">
+                <!-- image-preview-filename input [CUT FROM HERE]-->
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="uploadFileName" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                    <div class="input-group-btn">
+                        <!-- image-preview-clear button -->
+                        <button type="button" class="btn btn-default" ng-show="uploadFileName" ng-click="clear()">
+                            <span class="glyphicon glyphicon-remove"></span> Clear
+                        </button>
+                        <!-- image-preview-input -->
+                        <div class="btn btn-default image-preview-input">
+                            <span class="glyphicon glyphicon-folder-open"></span>
+                            <span class="image-preview-input-title" ng-bind="uploadFileName?'Change':'Browse'">Browse</span>
+                            <input ng-files="getTheFiles($files)" ng-click="setFileName()" type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" id="input-file-preview" /> <!-- rename it -->
+                        </div>
+                        <button class="btn btn-primary" ng-click="uploadFiles()" ng-disabled="!uploadFileName">
+                            <span class="glyphicon glyphicon-upload"></span>
+                            Upload
+                        </button>
+                    </div>
+                </div><!-- /input-group image-preview [TO HERE]-->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        angular.module('fupApp', [])
+            .directive('ngFiles', ['$parse', function ($parse) {
+
+                function fn_link(scope, element, attrs) {
+                    var onChange = $parse(attrs.ngFiles);
+                    element.on('change', function (event) {
+                        onChange(scope, { $files: event.target.files });
+                    });
+                };
+
+                return {
+                    link: fn_link
+                }
+            }])
+            .controller('fupController', function ($scope, $http) {
+
+                var formdata = new FormData();
+                $scope.getTheFiles = function ($files) {
+                    debugger;
+                    $scope.$apply(function () {
+                        $scope.uploadFileName = $files[0].name;
+                        $scope.files = $files;
+                    });
+
+                    angular.forEach($files, function (value, key) {
+                        formdata.append(key, value);
+                    });
+
+                };
+
+                $scope.setFileName = function () {
+                    $scope.uploadFileName = $scope.files[0].name;
+                }
+                // NOW UPLOAD THE FILES.
+                $scope.uploadFiles = function () {
+                    var request = {
+                        method: 'POST',
+                        url: 'api/FileUpload/UploadFiles',
+                        data: formdata,
+                        headers: {
+                            'Content-Type': undefined
+                        }
+                    };
+
+                    // SEND THE FILES.
+                    $http(request)
+                        .success(function (d) {
+                            alert(d);
+                        })
+                        .error(function () {
+                        });
+                }
+
+                $scope.clear = function () {
+                    $scope.uploadFileName = "";
+                }
+            });
+    </script>
+</body>
+</html>
