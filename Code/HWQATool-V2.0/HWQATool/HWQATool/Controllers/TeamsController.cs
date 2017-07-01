@@ -43,35 +43,38 @@ namespace HWQATool.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutTeam(int id, Team team)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             if (id != team.Id)
             {
                 return BadRequest();
             }
-
-            db.Entry(team).State = EntityState.Modified;
-
-            try
+            string message;
+            bool isValid = IsValidateTeam(team, out message);
+            if (isValid)
             {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TeamExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                db.Entry(team).State = EntityState.Modified;
 
-            return StatusCode(HttpStatusCode.NoContent);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!TeamExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+                return Ok(new GenericResponse() { Success = true, Message = message, Data = team });
+            }
+            else
+            {
+                return Ok(new GenericResponse() { Success = false, Message = message });
+            }
         }
 
         // POST: api/Teams
