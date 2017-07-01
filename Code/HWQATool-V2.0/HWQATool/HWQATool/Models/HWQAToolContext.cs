@@ -20,6 +20,8 @@ namespace HWQATool.Models
         }
 
         public System.Data.Entity.DbSet<HWQATool.Models.Team> Teams { get; set; }
+
+        public System.Data.Entity.DbSet<HWQATool.Models.Client> Clients { get; set; }
     
     }
 }
