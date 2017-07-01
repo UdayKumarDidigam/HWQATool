@@ -1,0 +1,32 @@
+﻿
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th>Seibel #</th>
+                <th>Audit No</th>
+                <th>Process Date</th>
+                <th>Audit Date</th>
+                <th>Client</th>
+                <th>Processor</th>
+                <th>Auditor</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Error</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="result in results track by $index">
+                <td>{{$index + 1}}</td>
+                <td>{{result.auditNo}}</td>
+                <td>{{result.processDate}}</td>
+                <td>{{result.auditDate}}</td>
+                <td>{{result.client}}</td>
+                <td>{{result.processor}}</td>
+                <td>{{result.auditor}}</td>
+                <td>{{result.type}}</td>
+                <td>{{result.status}}</td>
+                <td>{{result.error}}</td>
+        </tbody>
+
+    </table>
+
