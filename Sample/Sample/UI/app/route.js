@@ -34,6 +34,9 @@
     }).when("/upload", {
         templateUrl: "view/upload.html",
         controller: "fupController"
+    }).when("/search", {
+        templateUrl: "view/search.view.html",
+        controller: "searchController"
     })
 
     ;
