@@ -37,7 +37,10 @@ namespace HWQATool.Models
 
         [Column("CLIENT_ID")]
         public int? ClientId { get; set; }
-
+        
+        [Column("TASK_ID")]
+        public int? TaskId { get; set; }
+        
         [Column("SUB_TASK_ID")]
         public int? SubTaskId { get; set; }
 
