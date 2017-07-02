@@ -1,32 +1,175 @@
-﻿
-    <table class="table table-bordered table-condensed">
-        <thead>
-            <tr>
-                <th>Seibel #</th>
-                <th>Audit No</th>
-                <th>Process Date</th>
-                <th>Audit Date</th>
-                <th>Client</th>
-                <th>Processor</th>
-                <th>Auditor</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th>Error</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="result in results track by $index">
-                <td>{{$index + 1}}</td>
-                <td>{{result.auditNo}}</td>
-                <td>{{result.processDate}}</td>
-                <td>{{result.auditDate}}</td>
-                <td>{{result.client}}</td>
-                <td>{{result.processor}}</td>
-                <td>{{result.auditor}}</td>
-                <td>{{result.type}}</td>
-                <td>{{result.status}}</td>
-                <td>{{result.error}}</td>
-        </tbody>
+﻿<head>
+    <title>Search</title>
+    <style>
+        ul {
+            background-color: black;
+        }
 
-    </table>
+        th {
+            text-align: center;
+        }
 
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <br>
+        <h3 align="center"><b>Enter following details</b></h3>
+        <br>
+        <form role="form" style="margin-top:10px">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="Process">Process:</label>
+                        <select class="form-control" id="Process">
+                            <option>Select Team</option>
+
+                            <option ng-repeat="team in teams track by $index">{{team.name}}</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="AuditNumber">Audit Number:</label>
+                        <input type="text" class="form-control" id="AuditNumber" placeholder="Enter Audit Number">
+                    </div>
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="KeyClients">KeyClients:</label>
+                        <select class="form-control" id="KeyClients">
+                            <option>Select Key Clients</option>
+                            
+                                <option ng-repeat="client in clients track by $index">{{client.isKeyClient}}</option>
+                           
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="Client">Clients:</label>
+                        <select class="form-control" id="Client">
+                            <option>Select Client</option>
+                            
+                                <option ng-repeat="client in clients track by $index">{{client.name}}</option>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="status">Status:</label>
+                        <select class="form-control" id="status">
+                            <option>Select Status</option>
+                            
+                                <option ng-repeat="audit in audits track by $index">{{audit.status}}</option>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="ProcessorName">Processor Name:</label>
+                        <select class="form-control" id="ProcessorName">
+                            <option>Select Processor Name</option>
+                            
+                                <option ng-repeat="audit in audits track by $index">{{audit.processor}}</option>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="AuditTasks">Audit Tasks:</label>
+                        <select class="form-control" id="AuditTasks">
+                            <option>Select Audit tasks</option>
+                           
+                                <option ng-repeat="task in tasks track by $index">{{task.name}}</option>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="Seibel#/Confiramtion#/ClientId">Seibel#/Confiramtion#/ClientId:</label>
+                        <input type="text" class="form-control" id="Seibel#/Confiramtion#/ClientId" placeholder="Enter Seibel#/Confiramtion#/ClientId">
+                    </div>
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="Platform">Platform:</label>
+                        <select class="form-control" id="Platform">
+                            <option>Select Platform</option>
+                          
+                                <option ng-repeat="platform in platforms track by $index">{{platform.name}}</option>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="AuditDateFrom">Audit Date from:</label>
+                        <input type="date" class="form-control" id="AuditDateFrom" placeholder="Enter Audit Date From">
+                    </div>
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="AuditDateTo">Audit Date To:</label>
+                        <input type="date" class="form-control" id="AuditDateTo" placeholder="Enter Audit Date To">
+                    </div>
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="ProcessedDateFrom">Processed Date from:</label>
+                        <input type="date" class="form-control" id="ProcessedDateFrom" placeholder="Enter Processed Date From">
+                    </div>
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="ProcessedDateTo">Processed Date To:</label>
+                        <input type="date" class="form-control" id="ProcessedDateTo" placeholder="Enter Processed Date To">
+                    </div>
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="AuditorName">Auditor Name:</label>
+                        <select class="form-control" id="AuditorName">
+                            <option>Select Auditor Name</option>
+                            
+                                <option ng-repeat="audit in audits track by $index">{{audit.auditor}}</option>
+                            
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">Work Today</a>
+                        <a href="#" class="list-group-item">Work Status</a>
+                        <a href="#" class="list-group-item">View Processed</a>
+                        <a href="#" class="list-group-item ">View Defects</a>
+                        <a href="#" class="list-group-item">View Audited</a>
+                        <a href="#" class="list-group-item">Focused-Sampling</a>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br /><br />
+        <h3 align="center"><b>Results</b></h3>
+        <br /><br />
+
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>Seibel #</th>
+                    <th>Audit No</th>
+                    <th>Process Date</th>
+                    <th>Audit Date</th>
+                    <th>Client</th>
+                    <th>Processor</th>
+                    <th>Auditor</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Error</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="result in results track by $index">
+                    <td>{{$index + 1}}</td>
+                    <td>{{result.auditNo}}</td>
+                    <td>{{result.processDate}}</td>
+                    <td>{{result.auditDate}}</td>
+                    <td>{{result.client}}</td>
+                    <td>{{result.processor}}</td>
+                    <td>{{result.auditor}}</td>
+                    <td>{{result.type}}</td>
+                    <td>{{result.status}}</td>
+                    <td>{{result.error}}</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+</body>
