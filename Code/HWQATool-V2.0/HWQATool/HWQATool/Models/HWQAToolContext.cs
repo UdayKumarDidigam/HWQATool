@@ -26,6 +26,10 @@ namespace HWQATool.Models
         public System.Data.Entity.DbSet<HWQATool.Models.SubTask> SubTasks { get; set; }
 
         public System.Data.Entity.DbSet<HWQATool.Models.Task> Tasks { get; set; }
+
+        public System.Data.Entity.DbSet<HWQATool.Models.User> Users { get; set; }
+
+        public System.Data.Entity.DbSet<HWQATool.Models.Grade> Grades { get; set; }
     
     }
 }

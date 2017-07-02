@@ -33,3 +33,4 @@ C:\Users\krishnateja\krishna\miniproject\HWQATool\Code\HWQATool-V2.0\HWQATool\HW
 C:\Users\krishnateja\krishna\miniproject\HWQATool\Code\HWQATool-V2.0\HWQATool\HWQATool\bin\Antlr3.Runtime.pdb
 C:\Users\krishnateja\krishna\miniproject\HWQATool\Code\HWQATool-V2.0\HWQATool\HWQATool\obj\Debug\HWQATool.dll
 C:\Users\krishnateja\krishna\miniproject\HWQATool\Code\HWQATool-V2.0\HWQATool\HWQATool\obj\Debug\HWQATool.pdb
+C:\Users\krishnateja\krishna\miniproject\HWQATool\Code\HWQATool-V2.0\HWQATool\HWQATool\obj\Debug\HWQATool.csprojResolveAssemblyReference.cache
