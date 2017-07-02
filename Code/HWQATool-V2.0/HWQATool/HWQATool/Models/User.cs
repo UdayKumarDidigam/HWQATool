@@ -26,12 +26,12 @@ namespace HWQATool.Models
         public string Email { get; set; }
 
         [Required]
-        [Column("FIRSTNAME", TypeName = "VARCHAR")]
+        [Column("FIRST_NAME", TypeName = "VARCHAR")]
         [StringLength(50)]
         public string FirstName { get; set; }
 
         [Required]
-        [Column("LASTNAME", TypeName = "VARCHAR")]
+        [Column("LAST_NAME", TypeName = "VARCHAR")]
         [StringLength(50)]
         public string LastName { get; set; }
 
