@@ -41,5 +41,8 @@ namespace Sample.Models
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
+        public System.Data.Entity.DbSet<HWQATool.Models.Audit> Audits { get; set; }
+
+        public System.Data.Entity.DbSet<HWQATool.Models.User> Users { get; set; }
     }
 }

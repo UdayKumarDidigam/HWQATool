@@ -1,13 +1,16 @@
-﻿app.controller('fupController', function ($scope,$http) {
+﻿app.controller('fupController', function ($scope, $window, $http) {
 
     debugger;
     $http.get("http://localhost:2864/api/UploadTracks").then(function (response) {
         debugger;
-        $scope.uploads= response.data;
+        $scope.uploads = response.data;
     }, function (error) {
 
     });
 
+    $scope.downloadFile = function (teamId, trackId) {
+        $window.open("/api/file/download/" + teamId + "/" + trackId /*+ params*/);
+    }
 
 
 
@@ -49,14 +52,14 @@
     }
 
     // UPDATE PROGRESS BAR.
-  function updateProgress(e) {
+    function updateProgress(e) {
         if (e.lengthComputable) {
             debugger;
             document.getElementById('pro').setAttribute('value', e.loaded);
             document.getElementById('pro').setAttribute('max', e.total);
         }
     }
-   
+
     // CONFIRMATION.
     function transferComplete(e) {
         alert("Files uploaded successfully.");

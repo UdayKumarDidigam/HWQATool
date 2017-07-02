@@ -37,6 +37,9 @@
                     <span class="glyphicon glyphicon-upload"></span>
                     Upload
                 </button>
+
+
+
             </div>
         </div>
     </div></br></br></br></br></br>
@@ -63,13 +66,13 @@
                     <td>
                         <div ng-switch={{upload.status}}>
                             <div ng-switch-when=1>
-                               <p>Submitted</p>
+                                <p>Submitted</p>
                             </div>
                             <div ng-switch-when=2>
                                 <p>Queued </p>
                             </div>
                             <div ng-switch-when=3>
-                              <p> Proccessing</p>
+                                <p> Proccessing</p>
                             </div>
                             <div ng-switch-when=4>
                                 <p> Completed </p>
@@ -79,7 +82,12 @@
                             </div>
                         </div>
                     </td>
-                    <td>{{upload.report}}</td>
+                    <td>
+                        <button class="btn btn-link" ng-click="downloadFile(upload.teamId,upload.id)">
+                            <span class="glyphicon glyphicon-download"></span>
+                            Download
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
